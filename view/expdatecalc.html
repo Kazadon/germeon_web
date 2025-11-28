@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Сертификаты на продукцию</title>
+</head>
+<style > body {background-color: #B9B9B9; color: black;}</style>
+<body>
+    <div>
+        <h1><a href="../">Вернуться в меню</a></h1>
+    </div>
+    <div>
+        <h1>Калькулятор срока годности</h1>
+        <form action="#" method="GET">
+            <label for="mfg_date">Дата производства: </label>
+                <input type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required>
+            <br>
+            <label for="exp_date">Дата окончания срока годности: </label>
+                <input type="date" id="exp_date" placeholder="ДД.ММ.ГГГГ" required>
+            <br>
+            
+            <input type="submit" value="Рассчитать">
+            <br>
+            <br>
+            <div id="callback">
+                <h1>Print result here</h1>
+            </div>
+            
+
+        </form>
+    </div>
+</body>
+</html>

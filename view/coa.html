@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Сертификаты на продукцию</title>
+</head>
+<style > body {background-color: #B9B9B9; color: black;}</style>
+<body>
+    <div>
+        <h1><a href="../">Вернуться в меню</a></h1>
+    </div>
+    <div>
+        <h1>Поиск сертификата</h1>
+        <form action="#" method="GET">
+            <label for="nomenclature">Номенклатура: </label>
+                <input type="text" name="nomenclature" id="nomenclature" list="search-nomenclature" placeholder="Выберите номенклатуру">
+                <datalist id="search-nomenclature" >
+                    <option value="G04072114">Germeon <b>G04072114</b> Буферный раствор pH <b>1,68, 50 мл</b></option>
+                    <option value="G04072079">Germeon <b>G04072079</b> Буферный раствор pH <b>1,68, 250 мл</b></option>
+                    <option value="G04072080">Germeon <b>G04072080</b> Буферный раствор pH <b>1,68, 500 мл</b></option>
+                    <option value="G04072115">Germeon <b>G04072115</b> Буферный раствор pH <b>4,01, 50 мл</b></option>
+                </datalist>
+            <br>
+            <label for="lot">Номер партии: </label>
+                <input type="text" name="lot" id="lot" placeholder="Введите партию товара..." required>
+            <br>
+            <label for="mfg_date">Дата производства: </label>
+                <input type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required>
+            <br>
+            <input type="submit" value="Найти">
+            <br>
+            <br>
+            <br>
+            <h1>Forwarding test</h1>
+
+        </form>
+    </div>
+</body>
+</html>
