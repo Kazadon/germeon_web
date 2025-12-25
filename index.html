@@ -15,20 +15,6 @@
   }
 </style>
 
-<!-- bg color  -->
-<style>
-  .realistic-scales {
-  background: 
-    linear-gradient(135deg, #111 25%, transparent 25%) -20px 0,
-    linear-gradient(225deg, #111 25%, transparent 25%) -20px 0,
-    linear-gradient(315deg, #111 25%, transparent 25%),
-    linear-gradient(45deg, #111 25%, transparent 25%);
-  background-size: 40px 40px;
-  background-color: #050505;
-  filter: contrast(120%) brightness(80%); /* Enhances the dark 'powder' look */
-}
-</style>
-
 <!-- icons -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="home" viewBox="0 0 16 16">
@@ -44,13 +30,12 @@
 </svg>
 
 </head>
-<body class="text-left bg-dark">
+<body class="text-left bg-dark d-flex justify-content-center">
+  <div class="flex-column" style="width: 400px;">
   <header id="header"></header>
   <main class="d-flex flex-column flex-shrink-0 p-3 justify-content-center text-white" >
     <div class="shadow-lg rounded mx-auto px-3 py-4 fs-3 mt-5" id="display-anim" style="visibility: hidden; ">
-      <!-- лого гермеона 
-      <svg class="bi me-1 mb-2" width="50" height="50"><use href="templates/assets/icons/gerapp_logo.svg" ></svg> -->
-      <a href="#" class="nav-item fs-1 text-white nav-link link-info" style="color: #0dcaf0; ">
+      <a href="#" class="nav-item fs-1 text-white nav-link link-info">
         <svg class="bi ms-1 mb-3 mt-1 " width="32" height="32"><use xlink:href="#home" style="pointer-events: none; fill: #0dcaf0;"></svg>
         Меню
       </a>
@@ -71,17 +56,17 @@
       </li>
     </div>
   </main>
-  <footer id="footer" >
-    
-  </footer>
+  <footer id="footer" ></footer>
+  </div>
+
   <script>
-    fetch('templates/header.html')
+    fetch('../templates/header.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('header').innerHTML = html;
       })
       .catch(error => console.error('Error loading template:', error));
-    fetch('templates/footer.html')
+    fetch('../templates/footer.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('footer').innerHTML = html;
@@ -89,7 +74,6 @@
         menu_div.classList.add('display-anim');
       })
       .catch(error => console.error('Error loading template:', error));
-    
   </script>
   <style>
     @keyframes fadeIn {
@@ -108,5 +92,6 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 </body>
 </html>
