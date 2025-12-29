@@ -57,10 +57,12 @@
 
 </head>
 <body class=" bg-dark">
-  <header id="header" class="d-flex flex-column align-items-center"></header>
+  <header id="header" class="d-flex flex-column align-items-center" style="padding-top: calc(60px + env(safe-area-inset-top))">
+    <svg class="mb-3" width="180" height="40"><use xlink:href="#ger-logo"></svg>
+  </header>
   <main class="d-flex justify-content-center flex-column align-items-center" >
-  <div class="p-3 text-white" style="width: 400px;">
-    <div class="shadow-lg rounded mx-auto px-3 py-4 fs-3 mt-5 d-flex justify-content-center flex-column" id="display-anim" style="visibility: hidden; ">
+  <div class="p-3 text-white shadow-lg rounded mx-auto px-3 py-4 fs-3 mt-5 d-flex justify-content-center flex-column" style="width: 400px;">
+    <div class="" id="display-anim" style="visibility: hidden; ">
       <a href="#" class="nav-item fs-1 text-white nav-link link-info">
         <svg class="bi mb-3 mt-1 me-2" width="36" height="36"><use xlink:href="#house-fill" style="pointer-events: none; fill: #0dcaf0;"></svg>Меню
       </a>
@@ -85,12 +87,6 @@
 <footer id="footer" class="d-flex flex-column align-items-center"></footer>
 
   <script>
-    fetch('../templates/header.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('header').innerHTML = html;
-      })
-      .catch(error => console.error('Error loading template:', error));
     fetch('../templates/footer.html')
       .then(response => response.text())
       .then(html => {
