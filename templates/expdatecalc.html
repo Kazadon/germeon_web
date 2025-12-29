@@ -30,31 +30,33 @@
 </svg>
 
 </head>
-<body class="text-left bg-dark d-flex justify-content-center">
-    <div class="flex-column" style="width: 400px;">
-    <header id="header"></header>
-
-        <h1><a href="../index.html">Вернуться в меню</a></h1>
-    </div>
-    <div>
-        <h1>Калькулятор срока годности</h1>
-        <form action="#" method="GET">
-            <label for="mfg_date">Дата производства: </label>
-                <input type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required>
-            <br>
-            <label for="exp_date">Дата окончания срока годности: </label>
-                <input type="date" id="exp_date" placeholder="ДД.ММ.ГГГГ" required>
-            <br>
-            
-            <input type="submit" value="Рассчитать" class="btn btn-dark">
-            <br>
-            <br>
-            <div id="callback">
-                <h1>Print result here</h1>
+<body class="bg-dark text-white">
+    <header id="header" class="d-flex flex-column align-items-center"></header>
+    <main class="d-flex justify-content-center flex-column align-items-center pt-5">
+            <a href="../index.html" class="fs-5 text-white nav-link link-info text-left">Назад</a>
+        <div style="width: 400px;">
+            <div class="shadow-lg rounded mx-auto px-3 py-4" id="display-anim" style="visibility: hidden;">
+                <p>Калькулятор срока годности</p>
+                <hr>
+                <form action="#" method="GET">
+                    <label for="mfg_date">Дата производства: </label>
+                        <input type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required>
+                    <br>
+                    <label for="exp_date">Дата окончания срока годности: </label>
+                        <input type="date" id="exp_date" placeholder="ДД.ММ.ГГГГ" required>
+                    <br>
+                    
+                    <input type="submit" value="Рассчитать" class="btn btn-dark">
+                    <br>
+                    <br>
+                    <div id="callback">
+                        Print result here
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-
+        </div>
+    </main>
+    <footer id="footer" class="d-flex flex-column align-items-center"></footer>
   <script>
     fetch('../templates/header.html')
       .then(response => response.text())
@@ -83,8 +85,7 @@
       }
     }
     .display-anim {
-      
-      animation: fadeIn 2s forwards;
+        animation: fadeIn 0.77s forwards;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
