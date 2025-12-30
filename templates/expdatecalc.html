@@ -31,22 +31,23 @@
       <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
   </symbol>
 </svg>
-
 </head>
+
 <body class="bg-dark text-white">
     <header id="header"></header>
     <main class="d-flex flex-column align-items-center justify-content-center pt-2" >
         <div style="width: 400px;">
-            
             <div class="shadow-lg rounded mx-auto px-3 py-4 " id="display-anim" style="visibility: hidden;">
-                <div class="d-flex justify-content-center align-items-center flex-column">
-                    <svg class="bi mb-2" width="36" height="36"><use xlink:href="#calculator" style="pointer-events: none; fill: #0dcaf0;"></svg>
-                    <p class="fs-3 mb-1">Калькулятор срока годности</p>
+                <div class="" >
+                    <a href="#" class="nav-item nav-link link-info text-white d-flex justify-content-center align-items-center flex-column" onclick="alert('Модуль для вычисления остаточного срока годности товара')">
+                        <svg class="bi mb-2" width="36" height="36" ><use xlink:href="#calculator" style="pointer-events: none; fill: #0dcaf0;" ></svg>
+                        <p class="fs-3 mb-0">Калькулятор срока годности</p>
+                    </a>
                 </div>
                 <hr>
                 <form action="#" method="GET">
                     <div class="form-floating">
-                        <input class="form-control text-white" type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required style="background-color: #34373a99; border-color: #dee2e678;">
+                        <input class="form-control text-white align-items-center" type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required style="background-color: #34373a99; border-color: #dee2e678;">
                         <label class="text-white" for="mfg_date">Дата производства</label>
                     </div>
                     <div class="form-floating mt-1">
@@ -55,7 +56,7 @@
                     </div>
                     <div class="form-floating d-flex justify-content-between">
                         <input type="reset" class="btn btn-secondary mt-3">
-                        <input class="btn btn-info mt-3" type="submit" value="Рассчитать" >
+                        <button class="btn btn-info mt-3" onclick="handleForm()" value="btn_submit">Рассчитать</button>
                     </div>
                     <br>
                     <br>

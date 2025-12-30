@@ -56,28 +56,31 @@
 </svg>
 
 </head>
-<body class=" bg-dark">
+<body class="bg-dark text-white">
   <header id="header" class="d-flex flex-column align-items-center" style="padding-top: calc(60px + env(safe-area-inset-top))">
     <svg class="mb-3" width="180" height="40"><use xlink:href="#ger-logo"></svg>
   </header>
   <main class="d-flex justify-content-center flex-column align-items-center" >
-  <div class="p-3 text-white shadow-lg rounded mx-auto px-3 py-4 fs-3 mt-5 d-flex justify-content-center flex-column" style="width: 400px;">
-    <div class="" id="display-anim" style="visibility: hidden; ">
-      <a href="#" class="nav-item fs-1 text-white nav-link link-info">
-        <svg class="bi mb-3 mt-1 me-2" width="36" height="36"><use xlink:href="#house-fill" style="pointer-events: none; fill: #0dcaf0;"></svg>Меню
+  <div  style="width: 400px;">
+    <div class="shadow-lg rounded mx-auto px-3 py-4" id="display-anim" style="visibility: hidden; ">
+      <div class="d-flex flex-column justify-content-center align-items-center ">
+      <a href="#" class="nav-item fs-2 text-white nav-link link-info d-flex flex-column justify-content-center align-items-center" onclick="alert('Главное меню. Модули на разработке.')">
+        <svg class="" width="36" height="36" >
+          <use xlink:href="#house-fill" style="pointer-events: none; fill: #0dcaf0;">
+        </svg>Меню
       </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item btn-toggle-nav">
-        <a href="templates/expdatecalc.html" class="fs-5 text-white nav-link link-info" aria-current="page">
-          <svg class="bi me-1 mb-2" width="20" height="20"><use xlink:href="#calculator" style="pointer-events: none; fill: #0dcaf0;"></svg>
+    </div>
+    <hr>
+      <ul class="nav nav-pills flex-column mb-auto justify-content-start align-items-start">
+      <li class="nav-item">
+        <a href="templates/expdatecalc.html" class="fs-5 text-white nav-link link-info d-flex justify-content-center align-items-center" aria-current="page">
+          <svg class="me-1" width="20" height="20"><use xlink:href="#calculator" style="pointer-events: none; fill: #0dcaf0;"></svg>
           Калькулятор ОСГ
         </a>
       </li>
-      <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-       <a href="templates/coa.html" class="nav-link link-info text-white fs-5" aria-current="page">
-          <svg class="bi me-1 mb-2 " width="20" height="20"><use xlink:href="#cert-fill" style="pointer-events: none; fill: #0dcaf0;"></svg>
+       <a href="templates/coa.html" class="nav-link link-info text-white fs-5 d-flex justify-content-center align-items-center" aria-current="page">
+          <svg class="me-1" width="20" height="20"><use xlink:href="#cert-fill" style="pointer-events: none; fill: #0dcaf0;"></svg>
           Сертификаты на товар
         </a>
       </li>
