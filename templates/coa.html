@@ -5,99 +5,103 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">  <title>Меню</title>
 
 <!-- не помню для чего -->
-<style>
-  a{
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  <style>
+    a{
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+
+<!-- content display animation -->
+  <style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      visibility: hidden; /* Или display: none */
+    }
+    to {
+      opacity: 1;
+      visibility: visible; /* Или display: block */
+    }
   }
-</style>
+  .display-anim {
+    animation: fadeIn 0.77s forwards;
+  }
+  </style> 
+
 
 <!-- icons -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="home" viewBox="0 0 16 16">
-    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
-  </symbol>
-  <symbol id="calculator" viewBox="0 0 16 16">
-    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
-  </symbol>
-  <symbol id="certificate" viewBox=" 0 0 16 16">
-    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
-    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
-  </symbol>
-  <symbol id="arrow-left" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
-  </symbol>
-</svg>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="home" viewBox="0 0 16 16">
+      <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+    </symbol>
+    <symbol id="calculator" viewBox="0 0 16 16">
+      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
+    </symbol>
+    <symbol id="certificate" viewBox=" 0 0 16 16">
+      <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
+      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
+    </symbol>
+    <symbol id="arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
+    </symbol>
+    <symbol id="cert-fill" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
+      <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z"/>
+    </symbol>
+  </svg>
 </head>
 
 <body class="bg-dark text-white">
-  <header id="header"></header>
+  <header id="header">{% include 'header.html' %}</header>
   <main class="d-flex flex-column align-items-center justify-content-center pt-2" >
-    <div class="flex-column" style="width: 400px;">
-    </div>
-    <div>
-        <h1>Поиск сертификата</h1>
-        <form action="#" method="GET">
-            <label for="nomenclature">Номенклатура: </label>
-                <input type="text" name="nomenclature" id="nomenclature" list="search-nomenclature" placeholder="Выберите номенклатуру">
-                <datalist id="search-nomenclature" >
-                    <option value="G04072114">Germeon <b>G04072114</b> Буферный раствор pH <b>1,68, 50 мл</b></option>
-                    <option value="G04072079">Germeon <b>G04072079</b> Буферный раствор pH <b>1,68, 250 мл</b></option>
-                    <option value="G04072080">Germeon <b>G04072080</b> Буферный раствор pH <b>1,68, 500 мл</b></option>
-                    <option value="G04072115">Germeon <b>G04072115</b> Буферный раствор pH <b>4,01, 50 мл</b></option>
-                </datalist>
-            <br>
-            <label for="lot">Номер партии: </label>
-                <input type="text" name="lot" id="lot" placeholder="Введите партию товара..." required>
-            <br>
-            <label for="mfg_date">Дата производства: </label>
-                <input type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required>
-            <br>
-            <input type="submit" value="Найти">
-            <br>
-            <br>
-            <br>
-            <h1>Forwarding test</h1>
-
+    <div style="width: 400px;">
+      <div class="shadow-lg rounded mx-auto px-3 py-4 " id="display-anim" style="visibility: hidden;">
+        <div class="" >
+          <a href="#" class="nav-item nav-link link-info text-white d-flex justify-content-center align-items-center flex-column" onclick="alert('Модуль поиска сертификатов на товар')">
+              <svg class="bi mb-2" width="36" height="36" ><use xlink:href="#cert-fill" style="pointer-events: none; fill: #0dcaf0;" ></svg>
+              <p class="fs-3 mb-0">Поиск сертификата</p>
+          </a>
+      </div>
+        <hr>
+        <form action="#" method="GET" class="d-flex flex-column">
+          <div class="mb-2 form-floating">
+            <input class="form-control text-white align-items-center" id="nomenclature" list="search-nomenclature" placeholder="Выберите номенклатуру" required style="background-color: #34373a99; border-color: #dee2e678;">
+            <label class="text-white" for="nomenclature">Выберите номенклатуру...</label>
+            <datalist id="search-nomenclature" class="">
+              <option value="Germeon G04072114 Буферный раствор pH 1,68, 50 мл">
+              <option value="Germeon G04072079 Буферный раствор pH 1,68, 250 мл">
+              <option value="Germeon G04072080 Буферный раствор pH 1,68, 500 мл">
+              <option value="Germeon G04072115 Буферный раствор pH 4,01, 50 мл">
+            </datalist>
+          </div>
+          <div class="d-flex flex-row gap-2">
+            <div class="form-floating w-50">
+              <input class="form-control text-white align-items-center" type="text" id="lot" placeholder="Введите партию товара" required style="background-color: #34373a99; border-color: #dee2e678;">
+              <label class="text-white" for="lot">Номер партии</label>
+            </div>
+            <div class="form-floating w-50">
+              <input class="form-control text-white align-items-center" type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required style="background-color: #34373a99; border-color: #dee2e678;">
+              <label class="text-white" for="mfg_date">Дата производства</label>
+            </div>
+          </div>
+            <div class="form-floating d-flex justify-content-between">
+              <input type="reset" class="btn btn-secondary mt-3">
+              <button class="btn btn-info mt-3" onclick="handleForm()" value="btn_submit">Найти</button>
+            </div>
         </form>
+      </div>
     </div>
   </main>
-    <footer id="footer" class="d-flex flex-column align-items-center"></footer>
+  <footer id="footer" class="d-flex flex-column align-items-center">{% include 'footer.html' %}</footer>
 
   <script>
-    fetch('../templates/header.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('header').innerHTML = html;
-      })
-      .catch(error => console.error('Error loading template:', error));
-    fetch('../templates/footer.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('footer').innerHTML = html;
-        const menu_div = document.getElementById('display-anim');
-        menu_div.classList.add('display-anim');
-      })
-      .catch(error => console.error('Error loading template:', error));
+    const menu_div = document.getElementById('display-anim');
+    menu_div.classList.add('display-anim');
   </script>
-  <style>
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        visibility: hidden; /* Или display: none */
-      }
-      to {
-        opacity: 1;
-        visibility: visible; /* Или display: block */
-      }
-    }
-    .display-anim {
-        animation: fadeIn 0.77s forwards;
-    }
-  </style> 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

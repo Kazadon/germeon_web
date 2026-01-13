@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">  <title>Меню</title>
+
+<!-- не помню для чего -->
+  <style>
+    a{
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+
+<!-- icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="home" viewBox="0 0 16 16">
+      <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+    </symbol>
+    <symbol id="house-fill" viewBox="0 0 16 16">
+      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+      <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+    </symbol>
+    <symbol id="calculator" viewBox="0 0 16 16">
+      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z"/>
+    </symbol>
+    <symbol id="certificate" viewBox="0 0 16 16">
+      <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
+      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
+    </symbol>
+    <symbol id="cert-fill" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
+    <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z"/>
+    </symbol>
+    <symbol id="ger-icon" viewBox="0 0 40 40">
+      <path d="M21.1731 16.3219C24.2966 18.1211 27.4126 19.9193 30.5369 21.7188V33.899C27.0053 35.9331 23.4819 37.9658 19.9504 39.9999C16.4189 37.9657 12.8955 35.933 9.3639 33.899V23.6778C6.24038 21.8786 3.12444 20.0805 0 18.2811V6.10086C3.53162 4.0668 7.05501 2.03406 10.5866 0C13.8726 1.89279 17.1501 3.78385 20.4357 5.67623L18.9839 8.19655C16.1847 6.58419 13.3856 4.97555 10.5866 3.36307C8.03329 4.83375 5.47996 6.30098 2.92663 7.77166V16.6103C5.47877 18.0803 8.03077 19.5469 10.5829 21.0168C13.1404 19.5437 15.6894 18.0722 18.2465 16.5994V13.645L10.5866 13.6448V10.737L21.1731 10.7373V16.3222V16.3219ZM19.9544 18.983C17.3968 20.4559 14.8477 21.9275 12.2907 23.4005V32.228C14.844 33.6985 17.3972 35.1658 19.9505 36.6366C22.5039 35.166 25.0572 33.6987 27.6105 32.228V23.3895C25.0585 21.9196 22.5065 20.4529 19.9544 18.983Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5235 25.3876H22.3774V30.2299H17.5235V25.3876Z" fill="#0dcaf0"/>
+    </symbol>
+    <symbol id="ger-logo" viewBox="0 0 180 40">
+      <path d="M176.906 23.3655V10.6183H180V29.4038H177.579L168.702 16.6565V29.4038H165.608V10.6183H168.029L176.906 23.3655Z" fill="white"/>
+      <path d="M114.495 10.6183H117.804V29.4038H114.71V16.0127L108.98 25.459H108.603L102.874 15.9859V29.4038H99.78V10.6183H103.116L108.792 20.0111L114.495 10.6183Z" fill="white"/>
+      <path d="M94.4117 29.4038H91.0219L87.0406 22.5607H83.3821V29.4038H80.2887V10.6183H87.8206C89.5067 10.6183 90.9323 11.2089 92.0982 12.3894C93.2816 13.5346 93.8736 14.9569 93.8736 16.6565C93.8736 17.8553 93.5282 18.9511 92.8379 19.944C92.1472 20.9368 91.246 21.6568 90.1342 22.1042L94.4117 29.4038ZM87.8206 13.5167H83.3822V19.7962H87.8206C88.6456 19.7962 89.3452 19.4921 89.919 18.884C90.4933 18.2756 90.78 17.5332 90.78 16.6565C90.78 15.7799 90.4931 15.0375 89.919 14.4291C89.3452 13.8207 88.6456 13.5167 87.8206 13.5167Z" fill="white"/>
+      <path d="M156.957 26.9237C155.073 28.8023 152.769 29.7415 150.042 29.7415C147.317 29.7415 145.004 28.8023 143.102 26.9237C141.219 25.0273 140.278 22.7192 140.278 19.9999C140.278 17.2806 141.219 14.9814 143.102 13.1028C145.004 11.2065 147.317 10.2582 150.042 10.2582C152.769 10.2582 155.073 11.2065 156.957 13.1028C158.857 14.9814 159.808 17.2806 159.808 19.9999C159.808 22.7192 158.857 25.0273 156.957 26.9237ZM145.282 24.8304C146.59 26.1005 148.178 26.7359 150.042 26.7359C151.926 26.7359 153.504 26.1005 154.777 24.8304C156.068 23.5423 156.714 21.9321 156.714 19.9999C156.714 18.0677 156.068 16.4663 154.777 15.1961C153.504 13.9082 151.926 13.264 150.042 13.264C148.16 13.264 146.573 13.9082 145.282 15.1961C144.008 16.4663 143.371 18.0677 143.371 19.9999C143.371 21.9143 144.008 23.5244 145.282 24.8304Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M74.5658 10.6184H63.2675V13.671H74.5658V10.6184Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M74.5658 18.3692H63.2675V21.4218H74.5658V18.3692Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M74.5658 26.2814H63.2675V29.3342H74.5658V26.2814Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M135.631 10.6184H124.333V13.671H135.631V10.6184Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M135.631 18.3692H124.333V21.4218H135.631V18.3692Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M135.631 26.2814H124.333V29.3342H135.631V26.2814Z" fill="white"/>
+      <path d="M58.6723 19.6927V20.9357C58.6723 23.4217 57.8504 25.4544 56.2062 27.0342C54.5622 28.6138 52.4161 29.4037 49.7687 29.4037C46.9652 29.4037 44.6502 28.4973 42.8249 26.6847C40.9988 24.872 40.0862 22.6448 40.0862 20.0035C40.0862 17.3794 40.9988 15.1566 42.8249 13.3353C44.6502 11.5139 46.9131 10.6033 49.6129 10.6033C51.3088 10.6033 52.8575 10.9918 54.2594 11.7685C55.7782 12.6106 57.8387 14.6524 58.3076 16.3731L54.9603 16.378C54.4756 15.5149 53.7576 14.8199 52.8056 14.2933C51.8537 13.7668 50.7894 13.5035 49.6129 13.5035C47.7092 13.5035 46.1432 14.1252 44.9145 15.368C43.6859 16.611 43.0715 18.1647 43.0715 20.0294C43.0715 21.8939 43.6901 23.4389 44.9272 24.6646C46.1646 25.8903 47.7872 26.5033 49.7946 26.5033C51.4038 26.5033 52.7149 26.1278 53.7272 25.3768C54.7395 24.6257 55.3844 23.6202 55.6609 22.36H49.5868V19.6927H58.6724H58.6723Z" fill="white"/>
+      <path d="M21.1731 16.3219C24.2966 18.1211 27.4126 19.9193 30.5369 21.7188V33.899C27.0053 35.9331 23.4819 37.9658 19.9504 39.9999C16.4189 37.9657 12.8955 35.933 9.3639 33.899V23.6778C6.24038 21.8786 3.12444 20.0805 0 18.2811V6.10086C3.53162 4.0668 7.05501 2.03406 10.5866 0C13.8726 1.89279 17.1501 3.78385 20.4357 5.67623L18.9839 8.19655C16.1847 6.58419 13.3856 4.97555 10.5866 3.36307C8.03329 4.83375 5.47996 6.30098 2.92663 7.77166V16.6103C5.47877 18.0803 8.03077 19.5469 10.5829 21.0168C13.1404 19.5437 15.6894 18.0722 18.2465 16.5994V13.645L10.5866 13.6448V10.737L21.1731 10.7373V16.3222V16.3219ZM19.9544 18.983C17.3968 20.4559 14.8477 21.9275 12.2907 23.4005V32.228C14.844 33.6985 17.3972 35.1658 19.9505 36.6366C22.5039 35.166 25.0572 33.6987 27.6105 32.228V23.3895C25.0585 21.9196 22.5065 20.4529 19.9544 18.983Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5235 25.3876H22.3774V30.2299H17.5235V25.3876Z" fill="#0dcaf0"/>
+    </symbol>
+  </svg>
+
+<!-- content display animation -->
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        visibility: hidden; /* Или display: none */
+      }
+      to {
+        opacity: 1;
+        visibility: visible; /* Или display: block */
+      }
+    }
+    .display-anim {
+      
+      animation: fadeIn 2s forwards;
+    }
+  </style>
+
+</head>
+<body class="bg-dark text-white">
+  <header id="header" class="d-flex flex-column align-items-center" style="padding-top: calc(60px + env(safe-area-inset-top))">
+    <svg class="mb-3" width="180" height="40"><use xlink:href="#ger-logo"></svg>
+  </header>
+  <main class="d-flex justify-content-center flex-column align-items-center" >
+    <div  style="width: 400px;">
+      <div class="shadow-lg rounded mx-auto px-3 py-4" id="display-anim" style="visibility: hidden; ">
+        <div class="d-flex flex-column justify-content-center align-items-center ">
+        <a href="#" class="nav-item fs-2 text-white nav-link link-info d-flex flex-column justify-content-center align-items-center" onclick="alert('Главное меню. Модули на разработке.')">
+          <svg class="" width="36" height="36" >
+            <use xlink:href="#house-fill" style="pointer-events: none; fill: #0dcaf0;">
+          </svg>Меню
+        </a>
+      </div>
+      <hr>
+        <ul class="nav nav-pills flex-column mb-auto justify-content-start align-items-start">
+        <li class="nav-item">
+          <a href="expdatecalc" class="fs-5 text-white nav-link link-info d-flex justify-content-center align-items-center" aria-current="page">
+            <svg class="me-1" width="20" height="20"><use xlink:href="#calculator" style="pointer-events: none; fill: #0dcaf0;"></svg>
+            Калькулятор ОСГ
+          </a>
+        </li>
+        <li class="nav-item">
+        <a href="coa" class="nav-link link-info text-white fs-5 d-flex justify-content-center align-items-center" aria-current="page">
+            <svg class="me-1" width="20" height="20"><use xlink:href="#cert-fill" style="pointer-events: none; fill: #0dcaf0;"></svg>
+            Сертификаты на товар
+          </a>
+        </li>
+      </div>
+    </div>
+  </main>
+  <footer id="footer" class="d-flex flex-column align-items-center">{% include "footer.html" %}</footer>
+
+  <script>
+    const menu_div = document.getElementById('display-anim');
+    menu_div.classList.add('display-anim');
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
