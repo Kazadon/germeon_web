@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.templating import Jinja2Templates
 
-authorized: bool = True # Доступ к приложению после авторизации
+authorized: bool = True # Доступ к приложению после авторизации. Сделать авторизацию через тг, потом в базу закинуть как поле пользователя.
 router = APIRouter(prefix="", tags=['root'])
 templates = Jinja2Templates(directory='templates')
 
