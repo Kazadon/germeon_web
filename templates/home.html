@@ -15,6 +15,25 @@
     }
   </style>
 
+<!-- content display animation -->
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        visibility: hidden; /* Или display: none */
+      }
+      to {
+        opacity: 1;
+        visibility: visible; /* Или display: block */
+      }
+    }
+    .display-anim {
+      
+      animation: fadeIn 0.77s forwards;
+    }
+  </style>
+
+
 <!-- icons -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="home" viewBox="0 0 16 16">
@@ -54,26 +73,8 @@
       <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5235 25.3876H22.3774V30.2299H17.5235V25.3876Z" fill="#0dcaf0"/>
     </symbol>
   </svg>
-
-<!-- content display animation -->
-  <style>
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        visibility: hidden; /* Или display: none */
-      }
-      to {
-        opacity: 1;
-        visibility: visible; /* Или display: block */
-      }
-    }
-    .display-anim {
-      
-      animation: fadeIn 2s forwards;
-    }
-  </style>
-
 </head>
+
 <body class="bg-dark text-white">
   <header id="header" class="d-flex flex-column align-items-center" style="padding-top: calc(60px + env(safe-area-inset-top))">
     <svg class="mb-3" width="180" height="40"><use xlink:href="#ger-logo"></svg>
