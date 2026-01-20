@@ -8,7 +8,7 @@ user_router = Router()
 @user_router.message(CommandStart())
 async def start_handler(message: Message) -> None:
     kb = main_keyboard(message.from_user.id)
-    await message.answer(reply_markup=kb)
+    await message.answer(text='Привет!\nЗапусти приложение.', reply_markup=kb)
     
 
 @user_router.message(Command('help'), F.text == '\U00002049Помощь')

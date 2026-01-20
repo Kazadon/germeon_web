@@ -28,3 +28,10 @@ async def coa_page(request: Request):
     else:
         raise HTTPException(status_code=403, detail="ERROR 403. FORBIDDEN")
 
+
+@router.get('/test')
+async def test_page(request: Request):
+    return templates.TemplateResponse(name='base.html', 
+                                      context={
+                                          'request': request
+                                          })

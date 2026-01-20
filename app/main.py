@@ -1,12 +1,14 @@
 import uvicorn
 import logging
 from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 from aiogram.types import Update
 from core.pages.router import router as router_endpoints
 from bot.create_bot import bot, dp, start_bot, stop_bot
 from bot.handlers.user_router import user_router
 from config.env_config import WebSocketConfig
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
@@ -28,6 +30,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.mount('/static', StaticFiles(directory='app/static'), name='static')
 app.include_router(router=router_endpoints)
 
 
