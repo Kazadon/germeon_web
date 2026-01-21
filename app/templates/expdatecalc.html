@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block styles %}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
-  <link rel="stylesheet" href="/static/style/style.css">
+{% endblock %}
 
+{% block imgs %}
   <!-- icons -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="home" viewBox="0 0 16 16">
@@ -37,7 +37,7 @@
                   </a>
               </div>
               <hr>
-              <form action="#" method="GET">
+              <form action="#" method="GET" id="form_calc">
                   <div class="form-floating">
                       <input class="form-control text-white align-items-center" type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required style="background-color: #34373a99; border-color: #dee2e678;">
                       <label class="text-white" for="mfg_date">Дата производства</label>
@@ -48,12 +48,11 @@
                   </div>
                   <div class="form-floating d-flex justify-content-between">
                       <input type="reset" class="btn btn-secondary mt-3">
-                      <button class="btn btn-info mt-3" onclick="handleForm()" value="btn_submit">Рассчитать</button>
+                      <button class="btn btn-info mt-3" type="submit" id="calc_submit" value="btn_submit">Рассчитать</button>
                   </div>
                   <br>
                   <br>
-                  <div id="callback">
-                      Print result here
+                  <div id="callback" class="">
                   </div>
               </form>
           </div>
@@ -62,8 +61,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
-  const menu_div = document.getElementById('display-anim');
-  menu_div.classList.add('display-anim');
-</script>
+<script async src="/static/scripts/date_calc.js"></script>
 {% endblock %}

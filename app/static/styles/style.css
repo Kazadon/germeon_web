@@ -20,3 +20,7 @@ a  {
       
       animation: fadeIn 0.77s forwards;
     }
+
+#callback {
+  word-wrap: break-word;
+}
