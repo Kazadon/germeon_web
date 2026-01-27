@@ -43,6 +43,7 @@ form_calc.addEventListener('submit', function(event){
                 progress_div.classList.add('progress')
                 progress_div.style.background = '#2c3033'
                 progress_div.style.border = '1px solid #797e82'
+                progress_div.style.height = '20px'
                 
                 const progressbar = document.createElement('div')
                 progressbar.classList.add('progress-bar')
