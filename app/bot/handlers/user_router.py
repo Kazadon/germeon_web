@@ -19,6 +19,6 @@ async def menu_handler(message: Message) -> None:
 async def help_handler(message: Message) -> None:
     await message.answer(text='Команды бота:\n' \
     '/start - Приветствие\n'
-    '/menu - Главное меню'
+    '/menu - Главное меню\n'
     '/help - Помощь')
     
