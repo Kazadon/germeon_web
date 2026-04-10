@@ -7,7 +7,7 @@ from aiogram.types import Update
 from core.pages.router import router as router_endpoints
 from bot.create_bot import bot, dp, start_bot, stop_bot
 from bot.handlers.user_router import user_router
-from config.env_config import WebSocketConfig
+from config.env_config import WebConfig
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
     logging.info("Starting bot setup...")
     dp.include_router(user_router)
     await start_bot()
-    webhook_url = WebSocketConfig().get_webhook_url()
+    webhook_url = WebConfig().get_webhook_url()
     await bot.set_webhook(url=webhook_url,
                           allowed_updates=dp.resolve_used_update_types(),
                           drop_pending_updates=True)
@@ -29,7 +29,7 @@ async def lifespan(app: FastAPI):
     logging.info("Webhook deleted")
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI() # lifespan=lifespan временно убран из-за не работающей телеги
 app.mount('/static', StaticFiles(directory='app/static'), name='static')
 app.include_router(router=router_endpoints)
 

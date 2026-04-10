@@ -32,9 +32,9 @@ class DatabaseConfig(ConfigBase):
     DB_HOST: SecretStr
     DB_PASSWORD: SecretStr
 
-class WebSocketConfig(ConfigBase):
+class WebConfig(ConfigBase):
     """
-    Конфиг для WebSocket:    
+    Конфиг для Web:    
         BASE_SITE - URL сайта проекта
 
     Args:

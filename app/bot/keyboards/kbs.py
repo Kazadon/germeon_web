@@ -1,8 +1,8 @@
 from aiogram.types import ReplyKeyboardMarkup, WebAppInfo, InlineKeyboardMarkup
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
-from config.env_config import WebSocketConfig, TgBotConfig
+from config.env_config import WebConfig, TgBotConfig
 
-app_url = WebSocketConfig().BASE_SITE
+app_url = WebConfig().BASE_SITE
 admin_id = TgBotConfig().TG_ADMIN_ID
 
 def main_keyboard(user_id: int) -> ReplyKeyboardMarkup:
