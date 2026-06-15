@@ -1,14 +1,15 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Request
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import PlainTextResponse 
 
 authorized: bool = True # Доступ к приложению после авторизации. Сделать авторизацию через тг, потом в базу закинуть как поле пользователя.
 router = APIRouter(prefix="", tags=['root'])
 templates = Jinja2Templates(directory='app/templates')
 
-@router.get('/')
-async def main_page(request: Request):
+@router.get('/devisangry')
+async def angry_dev(request: Request):
     if authorized:
-        return templates.TemplateResponse(name='home.html', context={'request': request})
+        return templates.TemplateResponse(name='angrydev.html', context={'request': request})
     else:
         raise HTTPException(status_code=403, detail="ERROR 403. FORBIDDEN")
     
@@ -29,9 +30,20 @@ async def coa_page(request: Request):
         raise HTTPException(status_code=403, detail="ERROR 403. FORBIDDEN")
 
 
+@router.get('/')
+async def main_page(request: Request):
+    if authorized:
+        return templates.TemplateResponse(name='home.html', context={"request": request})
+    else:
+        raise HTTPException(status_code=403, detail="ERROR 403. FORBIDDEN")
+
 @router.get('/test')
 async def test_page(request: Request):
     return templates.TemplateResponse(name='base.html', 
                                       context={
                                           'request': request
                                           })
+
+# @router.post('/webhook')
+# async def webho(request: Request):
+#     print(f'request - {request.query_params}')

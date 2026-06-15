@@ -42,9 +42,9 @@ class WebConfig(ConfigBase):
     """
     BASE_SITE: str
     
-    def get_webhook_url(self):
-        """
-        Метод возвращает url сайта с эндпоинтом /webhook
-        """
-        return f"{self.BASE_SITE}/webhook"
+    # def get_webhook_url(self):
+    #     """
+    #     Метод возвращает url сайта с эндпоинтом /webhook
+    #     """
+    #     return f"{self.BASE_SITE}/webhoook"
     
