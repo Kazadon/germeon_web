@@ -43,6 +43,12 @@ async def test_page(request: Request):
                                       context={
                                           'request': request
                                           })
+@router.get('/greetings')
+async def test_page(request: Request):
+    return templates.TemplateResponse(name='greetings.html', 
+                                      context={
+                                          'request': request
+                                          })
 
 # @router.post('/webhook')
 # async def webho(request: Request):

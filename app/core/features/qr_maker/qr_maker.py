@@ -3,7 +3,9 @@ import qrcode_artistic
 from ....config.env_config import WebConfig
 
 print('hello')
-url = WebConfig().BASE_SITE
+base_url = WebConfig().BASE_SITE
 
-qrcode = segno.make(url, error='h')
-qrcode_artistic.write_artistic(qrcode, scale=6, background='./app/core/features/qr_maker/catmeme.jpg', target='qr.png')
+print('Making qr...')
+qrcode = segno.make(f'{base_url}greetings', error='h')
+qrcode_artistic.write_artistic(qrcode, scale=6, background='./app/core/features/qr_maker/pasha_face.jpg', target='qrnew.png')
+print('Done')
