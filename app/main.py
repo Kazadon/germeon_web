@@ -3,43 +3,30 @@ import logging
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
-from aiogram.types import Update
 from core.pages.router import router as router_endpoints
-# from bot.create_bot import bot, dp, start_bot, stop_bot
-from bot.handlers.user_router import user_router
-from config.env_config import WebConfig
-
+from core.features.dellin_api.preorder_pages import PreorderPages
+from config.env_config import DLAPIConfig
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# @asynccontextmanager
-# async def lifespan(app: FastAPI):
-#     logging.info("Starting bot setup...")
-#     dp.include_router(user_router)
-#     await start_bot()
-#     webhook_url = WebConfig().get_webhook_url()
-#     await bot.set_webhook(url=webhook_url,
-#                           allowed_updates=dp.resolve_used_update_types(),
-#                           drop_pending_updates=True)
-#     logging.info(f"Webhook set to {webhook_url}")
-#     yield
-#     logging.info("Shutting down bot...")
-#     await bot.delete_webhook()
-#     await stop_bot()
-#     logging.info("Webhook deleted")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    api_config = DLAPIConfig()
+    token = api_config.DL_API_TOKEN.get_secret_value()
+    login = api_config.LOGIN.get_secret_value()
+    password = api_config.PASSWORD.get_secret_value()
+    api_object = PreorderPages(token=token, login=login, password=password)
+    api_object.auth()
+    app.state.api_object = api_object
+    yield
+    api_object.close_session()
+    
 
-
-app = FastAPI() # lifespan=lifespan временно убран из-за не работающей телеги
+app = FastAPI(lifespan=lifespan) # lifespan=lifespan временно убран из-за не работающей телеги
 app.mount('/static', StaticFiles(directory='app/static'), name='static')
 app.include_router(router=router_endpoints)
 
 
-# @app.post("/webhook")
-# async def webhook(request: Request) -> None:
-#     logging.info("Received webhook request")
-#     update = Update.model_validate(await request.json(), context={"bot": bot})
-#     await dp.feed_update(bot, update)
-#     logging.info("Update processed")
 
 
 if __name__ == "__main__":

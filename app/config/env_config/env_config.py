@@ -48,3 +48,15 @@ class WebConfig(ConfigBase):
     #     """
     #     return f"{self.BASE_SITE}/webhoook"
     
+class DLAPIConfig(ConfigBase):
+    """
+    Конфиг для API ДЛ:
+        DL_API_TOKEN - токен API 
+        LOGIN - логин от личного кабинета на сайте
+        PASSWORD - пароль
+    Args:
+        ConfigBase (_type_): Наследование от класса ConfigBase
+    """
+    DL_API_TOKEN: SecretStr
+    PASSWORD: SecretStr
+    LOGIN: SecretStr
