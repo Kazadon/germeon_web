@@ -6,9 +6,9 @@ from core.features.dellin_api.printdocs import PrintDocument
 from datetime import datetime
 from core.features.dellin_api.base_dl import BaseDL
 
-class PreorderPages(BaseDL):
-    def __init__(self, token: str, login: str, password: str):
-        super().__init__(token, login, password)
+class PreorderPages():
+    def __init__(self, base_client: BaseDL):
+        self.base = base_client
 
     # Метод возвращает список номеров предварительных заявок от ООО Гермеон на указанную дату оформления заказов
     def get_germeon_orders(self):

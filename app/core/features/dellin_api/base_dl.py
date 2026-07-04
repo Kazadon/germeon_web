@@ -1,8 +1,10 @@
 import requests
+import httpx
 import json
 
 class BaseDL:
     def __init__(self, token: str, login: str, password: str):
+        self.client = httpx.AsyncClient(base_url='https://api.dellin.ru')
         self.headers = {'accept': 'application/json',
                         'Content-Type': 'application/json'}
         self.login = login
@@ -17,7 +19,8 @@ class BaseDL:
                 "login": self.login,
                 "password": self.password}
         json_string = json.dumps(data)
-        response = requests.post(url, headers=self.headers, data=json_string)
+        # ПЕРЕПИСАТЬ ВСЕ РЕКВЕСТЫ НА HTTPX
+        response = requests.post(url, headers=self.headers, data=json_string) 
         if response.status_code == 200:
             print(f"\nAUTH - succesful request\n")
             self.sessionID = json.loads(response.content)['data']['sessionID']

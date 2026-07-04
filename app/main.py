@@ -4,7 +4,7 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 from core.pages.router import router as router_endpoints
-from core.features.dellin_api.preorder_pages import PreorderPages
+from core.features.dellin_api.base_dl import BaseDL
 from config.env_config import DLAPIConfig
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -15,7 +15,7 @@ async def lifespan(app: FastAPI):
     token = api_config.DL_API_TOKEN.get_secret_value()
     login = api_config.LOGIN.get_secret_value()
     password = api_config.PASSWORD.get_secret_value()
-    api_object = PreorderPages(token=token, login=login, password=password)
+    api_object = BaseDL(token=token, login=login, password=password)
     api_object.auth()
     app.state.api_object = api_object
     yield
