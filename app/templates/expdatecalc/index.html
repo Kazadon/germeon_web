@@ -46,9 +46,9 @@
                       <input class="form-control text-light" type="date" id="exp_date" placeholder="ДД.ММ.ГГГГ" required style="background-color: #34373a99; border-color: #dee2e678;">
                       <label class="text-white" for="exp_date">Годен до</label>
                   </div>
-                  <div class="form-floating d-flex justify-content-between">
-                      <input type="reset" class="btn btn-secondary mt-3">
-                      <button class="btn btn-info mt-3" type="submit" id="calc_submit" value="btn_submit">Рассчитать</button>
+                  <div class="form-floating d-flex flex-column justify-content-center">
+                    <button class="btn btn-info mt-3" type="submit" id="calc_submit" value="btn_submit">Рассчитать</button>
+                    <input type="reset" class="btn btn-secondary mt-3">
                   </div>
                   <br>
                   <br>
@@ -61,5 +61,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script async src="/static/scripts/date_calc.js"></script>
+<script async src="/static/scripts/expdatecalc/date_calc.js"></script>
 {% endblock %}

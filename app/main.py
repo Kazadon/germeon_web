@@ -15,11 +15,22 @@ async def lifespan(app: FastAPI):
     token = api_config.DL_API_TOKEN.get_secret_value()
     login = api_config.LOGIN.get_secret_value()
     password = api_config.PASSWORD.get_secret_value()
+    
     api_object = BaseDL(token=token, login=login, password=password)
-    api_object.auth()
+    
+    try:
+        # Теперь это асинхронный вызов, который не блокирует сервер
+        await api_object.auth()
+        if not api_object.sessionID:
+            logging.error("Lifespan: Токен/логин неверны. Приложение запущено без активной сессии.")
+    except Exception as e:
+        logging.error(f"Lifespan: Сторонний API Деловых Линий недоступен ({e}). Приложение запущено в аварийном режиме.")
+    
     app.state.api_object = api_object
     yield
-    api_object.close_session()
+    # При выключении сервера корректно закрываем сессию и httpx-клиент
+    await api_object.close_session()
+    
     
 
 app = FastAPI(lifespan=lifespan) # lifespan=lifespan временно убран из-за не работающей телеги

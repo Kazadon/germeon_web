@@ -5,7 +5,8 @@ a  {
       -ms-user-select: none;
       user-select: none;
     }
-    
+
+/* для плавного появления главных div */
 @keyframes fadeIn {
       from {
         opacity: 0;

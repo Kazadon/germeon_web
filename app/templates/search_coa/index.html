@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Предварительные заявки
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block imgs %}
+{% endblock %}
+
+{% block content %}
+  <main class="d-flex flex-column align-items-center justify-content-center pt-2" >
+    <div style="width: 400px;">
+      <div class="shadow-lg rounded mx-auto px-3 py-4 " id="display-anim" style="visibility: hidden;">
+        <div class="" >
+          <a href="#" class="nav-item nav-link link-info text-white d-flex justify-content-center align-items-center flex-column" onclick="alert('Модуль поиска сертификатов на товар')">
+              <svg class="bi mb-2" width="36" height="36" ><use xlink:href="#cert-fill" style="pointer-events: none; fill: #0dcaf0;" ></svg>
+              <p class="fs-3 mb-0">Поиск сертификата</p>
+          </a>
+      </div>
+        <hr>
+        <form action="#" method="GET" class="d-flex flex-column">
+          <div class="mb-2 form-floating">
+            <input class="form-control text-white align-items-center" id="nomenclature" list="search-nomenclature" placeholder="Выберите номенклатуру" required style="background-color: #34373a99; border-color: #dee2e678;">
+            <label class="text-white" for="nomenclature">Выберите номенклатуру...</label>
+            <datalist id="search-nomenclature" class="">
+              <option value="Germeon G04072114 Буферный раствор pH 1,68, 50 мл">
+              <option value="Germeon G04072079 Буферный раствор pH 1,68, 250 мл">
+              <option value="Germeon G04072080 Буферный раствор pH 1,68, 500 мл">
+              <option value="Germeon G04072115 Буферный раствор pH 4,01, 50 мл">
+            </datalist>
+          </div>
+          <div class="d-flex flex-row gap-2">
+            <div class="form-floating w-50">
+              <input class="form-control text-white align-items-center" type="text" id="lot" placeholder="Введите партию товара" required style="background-color: #34373a99; border-color: #dee2e678;">
+              <label class="text-white" for="lot">Номер партии</label>
+            </div>
+            <div class="form-floating w-50">
+              <input class="form-control text-white align-items-center" type="date" id="mfg_date" placeholder="ДД.ММ.ГГГГ" required style="background-color: #34373a99; border-color: #dee2e678;">
+              <label class="text-white" for="mfg_date">Дата производства</label>
+            </div>
+          </div>
+            <div class="form-floating d-flex justify-content-between">
+              <input type="reset" class="btn btn-secondary mt-3">
+              <button class="btn btn-info mt-3" onclick="handleForm()" value="btn_submit">Найти</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
