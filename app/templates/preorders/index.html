@@ -12,8 +12,9 @@
 {% endblock %}
 
 {% block content %}
-  <main class="d-flex flex-column align-items-center justify-content-center pt-2" >
-      <div style="width: 400px;">
+  <main class="d-flex flex-column align-items-center justify-content-center pt-2">
+    <div style="width: calc(100% - 32px); max-width: 400px;">
+      <div>
           <div class="shadow-lg rounded mx-auto px-3 py-4 " id="display-anim" style="visibility: hidden;">
               <div class="" >
                   <a href="#" class="nav-item nav-link link-info text-white d-flex justify-content-center align-items-center flex-column" onclick="alert('Модуль для вычисления остаточного срока годности товара')">
@@ -33,17 +34,12 @@
                   </div>
                   <br>
                   <br>
-                </div>
-              </form>
-                
-
-
-                  
+              </form>      
           </div>
-      </div>
+        </div>
       <div id="search-info-container" class="p-2"></div>
       {% include 'preorders/order_template.html' %} 
-
+    </div>
   </main>
 {% endblock %}
 
