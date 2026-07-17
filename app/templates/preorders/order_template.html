@@ -1,0 +1,91 @@
+<div class="text-light p-1 d-none" id="ordersContainer" style="width: 400px; max-width: 400px; margin: 0 auto; font-size: 12px; font-family: sans-serif;">
+    <div class="card bg-dark border-secondary shadow-lg rounded p-2 mb-2">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="form-check m-0 d-flex align-items-center" style="min-height: auto;">
+                <input class="form-check-input my-0" type="checkbox" id="selectAllRequests" style="width: 16px; height: 16px;">
+                <label class="form-check-label text-info ms-2 fw-bold" for="selectAllRequests" style="font-size: 11px; letter-spacing: 0.5px;">
+                ВЫБРАТЬ ВСЕ
+                </label>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <span id="selectedCounter" class="badge bg-warning text-dark fw-bold border border-warning-subtle" style="font-size: 10px; display: none;">
+                ВЫБРАНО: 0
+                </span>
+                <button class="btn btn-warning text-dark btn-print-main py-1 px-2.5 d-flex align-items-center fw-bold" id="printSelectedBtn">
+                    <i class="bi bi-printer-fill me-1"></i> Распечатать
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="requestsList" class="d-flex flex-column gap-2"></div>
+    <template id="orderCardTemplate">  
+        <!-- Элемент списка -->
+        <div class="card bg-dark border-secondary rounded shadow-sm request-item">
+            <div class="card-body p-2">
+                <!-- Верхний ряд: Чекбокс, Номер, Стрелка и Печать -->
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="form-check m-0 p-0 me-2 d-flex align-items-center justify-content-center" onclick="event.stopPropagation();">
+                        <input class="form-check-input m-0 request-checkbox" type="checkbox" value="REQ-001" style="width: 16px; height: 16px;">
+                    </div>
+                    <!-- Зона клика для Номера и Стрелки (управляет развертыванием/свертыванием) -->
+                    <div class="d-flex align-items-center flex-grow-1 dropdown-toggle" data-bs-target="#details-001" data-bs-toggle="collapse" role="button" tabindex="0">
+                        <div class="nav-link link-info p-0 fw-bold text-truncate me-1 order-id" style="font-size: 13px;">
+                            НОМЕР ЗАЯВКИ
+                        </div>
+                        <i class="bi bi-chevron-down text-secondary medium fw-bold arrow-icon"></i>
+                    </div>
+
+                    <!-- Кнопка "Печать" справа (клики по ней изолированы) -->
+                    <div onclick="event.stopPropagation();">
+                        <button class="btn btn-outline-info py-0 px-2 btn-sm" onclick="printSingle('REQ-001')" style="font-size: 11px; height: 22px;">
+                            <i class="bi bi-printer"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Средний ряд: Тоже является триггером свертывания/развертывания -->
+                <div class="d-flex flex-column gap-1 mt-1 text-light-50 pb-1 dropdown-toggle" data-bs-target="#details-001" data-bs-toggle="collapse" role="button" tabindex="0">
+                    <div>
+                        <span class="text-secondary d-block" style="font-size: 9px; text-transform: uppercase;">Получатель</span>
+                        <span class="text-warning fw-bold order-receiver-name">ООО "МегаТрейд Трейдинг"</span>
+                    </div>
+                    <div>
+                        <span class="text-secondary d-block" style="font-size: 9px; text-transform: uppercase;">Город доставки</span>
+                        <span class="text-warning fw-bold order-arrival-city"><i class="bi bi-geo-alt-fill me-1"></i>Новосибирск</span>
+                    </div>
+                    <div class="d-flex flex-wrap gap-1">
+                        <div class="bg-black bg-opacity-50 px-2 py-0.5 rounded border border-secondary-subtle">
+                            <span class="text-secondary" style="font-size: 10px;">Мест:</span> <strong class="text-light order-freight-places">50</strong>
+                        </div>
+                        <div class="bg-black bg-opacity-50 px-2 py-0.5 rounded border border-secondary-subtle">
+                            <span class="text-secondary " style="font-size: 10px;">Вес:</span> <strong class="text-light order-freight-weight">1.2 т</strong>
+                        </div>
+                        <div class="bg-black bg-opacity-50 px-2 py-0.5 rounded border border-secondary-subtle">
+                            <span class="text-secondary " style="font-size: 10px;">Объем:</span> <strong class="text-light order-freight-volume">4.5 м³</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Разворачиваемая панель (Скрытые подробности) -->
+                <div class="collapse order-details-container" id="details-001">
+                    <div class="d-flex flex-column gap-1 my-1 bg-black bg-opacity-20 p-2 rounded border border-secondary">
+                        <div>
+                            <span class="text-secondary d-block" style="font-size: 9px; text-transform: uppercase;">Адрес доставки</span>
+                            <span class="text-light fw-bold order-arrival-address">188304, Ленинградская обл, Гатчинский р-н, Торфяное п, дом № 45</span>
+                        </div>
+                        <div>
+                            <span class="text-secondary d-block" style="font-size: 9px; text-transform: uppercase;">Контактное лицо</span>
+                            <span class="text-light fw-bold order-receiver-contacts"><i class="bi bi-geo-alt-fill me-0.5"></i>Человек</span>
+                        </div>
+                        <div>
+                            <span class="text-secondary d-block" style="font-size: 9px; text-transform: uppercase;">Телефон</span>
+                            <span class="text-light fw-bold order-receiver-phones"><i class="bi bi-geo-alt-fill me-0.5"></i>+79876543210</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <!-- Конец элемента списка -->
+    </template>
+</div>

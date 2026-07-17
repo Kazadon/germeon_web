@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block styles %}
+<link rel="stylesheet" href="/static/styles/preorder/order_template.css">
 {% endblock %}
 
 {% block imgs %}
@@ -34,34 +35,19 @@
                   <br>
                 </div>
               </form>
-              <ul id="ordersContainer" style="padding: 0; margin-top: 20px;"></ul>
-                <!-- ШАБЛОН КАРТОЧКИ -->
-                <template id="orderCardTemplate">
-                    <li class="order-card" style="background: white; padding: 15px; margin-bottom: 10px; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); list-style: none; border-left: 4px solid #2c3e50;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <span style="color: #7f8c8d; font-size: 12px;">НОМЕР ЗАЯВКИ</span>
-                                <h4 class="order-id" style="margin: 2px 0 8px 0; color: #2c3e50;"></h4>
-                                
-                                <p class="d-flex flex-column" style="margin: 4px 0;"><strong style="color: #34495e;">Получатель:</strong> 
-                                    <span class="order-receiver" style="margin: 2px 0 8px 0; color: #2c3e50;"></span>
-                                </p>
-                                <p style="margin: 4px 0;"><strong style="color: #34495e;">Город доставки:</strong> 
-                                    <span class="order-city" style="margin: 2px 0 8px 0; color: #2c3e50;"></span>
-                                </p>
-                            </div>
-                            <div class="print-btn" style="padding: 5px 10px; background: #e8f5e9; color: #2e7d32; border-radius: 10px; font-size: 12px; font-weight: bold;">
-                                <button class="btn ">Распечатать</button>
-                            </div>
-                        </div>
-                    </li>
-                </template>
                 
+
+
+                  
           </div>
       </div>
+      <div id="search-info-container" class="p-2"></div>
+      {% include 'preorders/order_template.html' %} 
+
   </main>
 {% endblock %}
 
 {% block scripts %}
-<script src="/static/scripts/preorders/search.js"></script>
+<script src="/static/scripts/preorders/checkboxes.js" defer></script>
+<script src="/static/scripts/preorders/search.js" defer></script>
 {% endblock %}

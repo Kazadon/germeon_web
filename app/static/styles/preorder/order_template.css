@@ -1,0 +1,26 @@
+/* Эффект наведения */
+.request-item { transition: border-color 0.15s ease-in-out; }
+.request-item:hover { border-color: #0dcaf0 !important; }
+
+/* Контрастная кнопка */
+.btn-print-main {
+font-size: 11px;
+background-color: #ffc107;
+border-color: #ffc107;
+}
+.btn-print-main:hover {
+background-color: #fd7e14;
+border-color: #fd7e14;
+color: #fff !important;
+}
+
+/* Вращение стрелки-иконки при разворачивании */
+.arrow-icon { transition: transform 0.2s ease; }
+[aria-expanded="true"] .arrow-icon {
+transform: rotate(180deg);
+color: #0dcaf0 !important;
+}
+
+/* Кастомные чекбоксы Bootstrap */
+.form-check-input { background-color: #1a1d20; border-color: #495057; }
+.form-check-input:checked { background-color: #0dcaf0; border-color: #0dcaf0; }

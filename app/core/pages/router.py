@@ -40,6 +40,7 @@ async def coa_page(request: Request):
         raise HTTPException(status_code=403, detail="ERROR 403. FORBIDDEN")
 
 
+
 async def get_dl_client(request: Request) -> BaseDL:
     return request.app.state.api_object
 
@@ -60,14 +61,14 @@ async def search_preorders_api(filters: PreorderFilter = Depends(), api: BaseDL 
         return {"success": True, "data": orders}
     
     
+    
+    
+    
+    
+    
 # @router.get('/test')
 # async def test_page(request: Request):
 #     return templates.TemplateResponse(name='base.html', 
 #                                       context={
 #                                           'request': request
 #                                           })
-
-
-# @router.post('/webhook')
-# async def webho(request: Request):
-#     print(f'request - {request.query_params}')
