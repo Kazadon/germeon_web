@@ -24,6 +24,7 @@ class BaseDL:
         if not self.sessionID:
             raise RuntimeError("Не удалось получить валидный sessionID от Деловых Линий")
         
+        await self.check_session()
         return self.sessionID
     
     # Аутентификация, получение sessionID для дальнейшей работы
@@ -109,22 +110,25 @@ class BaseDL:
                 logger.error(f"Сбой сети при запросе к {endpoint}: {e}")
                 raise
 
-    # # Проверка и обновление активности сессии
-    # async def check_session(self) -> None:
-    #     url = '/v3/auth/session_info.json'
-    #     data = {
-    #         "appKey": self.token,
-    #         "sessionID": self.sessionID
-    #             }
-    #     try:
-    #         response = await self.client.post(url, headers=self.headers, json=data)
-    #         if response.status_code == 200:
-    #             logger.info(f"Check session - successful request.")
-    #         else:
-    #             logger.warning("CHECK SESSION ERROR. Session expired or invalid. Reauthorizing...")
-    #             await self.auth()
-    #     except Exception as e:
-    #         logger.error(f"CHECK SESSION NETWORK ERROR: {e}. Keeping current sessionID as fallback.")
+    # Проверка и обновление активности сессии
+    async def check_session(self) -> None:
+        url = '/v3/auth/session_info.json'
+        data = {
+            "appKey": self.token,
+            "sessionID": self.sessionID
+                }
+        try:
+            response = await self.client.post(url, headers=self.headers, json=data)
+            if response.status_code == 200:
+                logger.info(f"Check session - successful request.")
+                # Переавторизация, если сессия истекла
+                if response.json()['data']['session']['expired'] == True:
+                    self.auth()
+            else:
+                logger.warning("CHECK SESSION ERROR. Something went wrong")
+                await self.auth()
+        except Exception as e:
+            logger.error(f"CHECK SESSION NETWORK ERROR: {e}. Keeping current sessionID as fallback.")
 
     # Закрытие активной сессии
     async def close_session(self) -> None:

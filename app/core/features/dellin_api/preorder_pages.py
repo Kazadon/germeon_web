@@ -9,17 +9,18 @@ class PreorderPages():
     def __init__(self, base_client: BaseDL):
         self.base_client = base_client
         self.httpxclient = base_client.client
+        self.sessionID = base_client.sessionID
 
     # Метод возвращает список номеров предварительных заявок от ООО Гермеон на указанную дату оформления заказов
     async def get_germeon_orders(self, search_date):
-        
         url = '/v3/orders.json'
         # date_str = input('Введите дату оформления заказа в формате ДД.ММ.ГГГГ:\n').replace('.', '-').replace(',', '-').replace('/','-').strip().strip('-')
         search_date = datetime.strptime(search_date, '%Y-%m-%d')
         end_date = search_date + timedelta(days=1)
         # search_date = datetime.strftime('%Y-%m-%d')
+        await self.base_client.get_valid_session_id()
         data = {"appkey": self.base_client.token, 
-                "sessionID":self.base_client.sessionID,
+                "sessionID":self.sessionID,
                 "dateStart": f'{search_date}', # Форматы даты ГГГГ-ММ-ДД
                 "dateEnd": f'{end_date}'
                 }
