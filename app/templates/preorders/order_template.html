@@ -1,5 +1,5 @@
 <div class="text-light p-1 d-none" id="ordersContainer" style=" margin: 0 auto; font-size: 12px; font-family: sans-serif;">
-    <div class="card bg-dark border-secondary shadow-lg rounded p-2 mb-2">
+    <div class="card floating-div rounded-3 p-2 mb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="form-check m-0 d-flex align-items-center" style="min-height: auto;">
                 <input class="form-check-input my-0" type="checkbox" id="selectAllRequests" style="width: 16px; height: 16px;">
@@ -17,10 +17,10 @@
             </div>
         </div>
     </div>
-    <div id="requestsList" class="d-flex flex-column gap-2"></div>
+    <div id="requestsList" class="d-flex flex-column gap-3 mt-3"></div>
     <template id="orderCardTemplate">  
         <!-- Элемент списка -->
-        <div class="card bg-dark border-secondary rounded shadow-sm request-item">
+        <div class="card floating-div rounded-3 request-item">
             <div class="card-body p-2">
                 <!-- Верхний ряд: Чекбокс, Номер, Стрелка и Печать -->
                 <div class="d-flex align-items-center justify-content-between">
@@ -51,7 +51,7 @@
                     </div>
                     <div>
                         <span class="text-secondary d-block" style="font-size: 9px; text-transform: uppercase;">Город доставки</span>
-                        <span class="text-warning fw-bold order-arrival-city"><i class="bi bi-geo-alt-fill me-1"></i>Новосибирск</span>
+                        <span class="text-light fw-bold order-arrival-city"><i class="bi bi-geo-alt-fill me-1"></i>Новосибирск</span>
                     </div>
                     <div class="d-flex flex-wrap gap-1">
                         <div class="bg-black bg-opacity-50 px-2 py-0.5 rounded border border-secondary-subtle">
@@ -68,7 +68,7 @@
 
                 <!-- Разворачиваемая панель (Скрытые подробности) -->
                 <div class="collapse order-details-container" id="details-001">
-                    <div class="d-flex flex-column gap-1 my-1 bg-black bg-opacity-20 p-2 rounded border border-secondary">
+                    <div class="d-flex flex-column gap-1 my-1 bg-black bg-opacity-10 p-2 rounded border border-secondary">
                         <div>
                             <span class="text-secondary d-block" style="font-size: 9px; text-transform: uppercase;">Адрес доставки</span>
                             <span class="text-light fw-bold order-arrival-address">188304, Ленинградская обл, Гатчинский р-н, Торфяное п, дом № 45</span>
