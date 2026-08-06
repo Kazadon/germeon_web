@@ -61,14 +61,9 @@ async def search_preorders_api(filters: PreorderFilter = Depends(), api: BaseDL 
         return {"success": True, "data": orders}
     
     
-    
-    
-    
-    
-    
-# @router.get('/test')
-# async def test_page(request: Request):
-#     return templates.TemplateResponse(name='base.html', 
-#                                       context={
-#                                           'request': request
-#                                           })
+@router.get('/expected_arrivals')
+async def expected_arrival(request: Request):
+    return templates.TemplateResponse(name=
+                                      '/expected_arrivals/index.html', context={
+                                          'request': request
+                                      })

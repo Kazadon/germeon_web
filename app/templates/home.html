@@ -26,8 +26,8 @@
 
 {% block content %}
   <main class="d-flex justify-content-center flex-column align-items-center" >
-    <div  style="width: 400px;">
-      <div class="shadow-lg rounded mx-auto px-3 py-4" id="display-anim" style="visibility: hidden; ">
+    <div  style="width: calc(100% - 32px); max-width: 400px;">
+      <div class="floating-div rounded-4 mx-auto px-3 py-4" id="display-anim" style="visibility: hidden; ">
         <div class="d-flex flex-column justify-content-center align-items-center ">
         <a href="#" class="nav-item fs-2 text-white nav-link link-info d-flex flex-column justify-content-center align-items-center" onclick="alert('Главное меню. Модули на разработке.')">
           <svg class="" width="36" height="36" >
@@ -50,9 +50,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/coa" class="nav-link link-info text-white fs-5 d-flex justify-content-center align-items-center" aria-current="page">
+          <a href="/expected_arrivals" class="nav-link link-info text-white fs-5 d-flex justify-content-center align-items-center" aria-current="page">
               <svg class="me-1" width="20" height="20"><use xlink:href="#cert-fill" style="pointer-events: none; fill: #0dcaf0;"></svg>
-            Сертификаты на товар
+            Ожидаемые доставки
           </a>
         </li>
       </div>

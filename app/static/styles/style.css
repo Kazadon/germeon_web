@@ -17,11 +17,43 @@ a  {
         visibility: visible; /* Или display: block */
       }
     }
-    .display-anim {
-      
-      animation: fadeIn 0.77s forwards;
-    }
+.display-anim {
+  
+  animation: fadeIn 0.77s forwards;
+}
 
 #callback {
   word-wrap: break-word;
+}
+
+/* Объемный вид контейнеров */
+.floating-div {
+  /* Градиент делает верх карточки светлее, создавая объем */
+  background: linear-gradient(135deg, #1d1f25 0%, #091115 100%) !important;
+  
+  /* Тонкая рамка (верхняя часть ярче, имитирует падение света) */
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.255);
+
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    0 30px 60px -15px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0px 0px rgba(255, 255, 255, 0.1);
+
+    
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* position: relative; */
+}
+
+/* Стили чекбоксов и его лэйбла */
+.form-check-input {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.form-check-label {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }

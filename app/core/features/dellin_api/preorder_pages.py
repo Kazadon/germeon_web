@@ -1,5 +1,6 @@
 import os
 import base64
+import logging
 from core.features.dellin_api.printdocs import PrintDocument
 from datetime import datetime, timedelta
 from core.features.dellin_api.base_dl import BaseDL
@@ -30,35 +31,37 @@ class PreorderPages():
         if response.status_code == 200:
             content = response.json()
             totalPages = int(content['metadata']['totalPages'])
-            return content['orders']
-            
-        #     if totalPages > 1:
-        #         for page in range(2, totalPages + 1):
-        #             data = {"appkey": self.base_client.token, 
-        #                     "sessionID":self.base_client.sessionID,
-        #                     "dateStart": f'{search_date } 00:00', # Форматы даты ГГГГ-ММ-ДД
-        #                     "dateEnd": f'{search_date} 23:59',
-        #                     'page': page
-        #                     }
-        #             response = requests.post(url, headers=self.base_client.headers, json=data)
-        #             orders_list.extend(response.content)['orders']
-        #     orders_result = []
-
-        #     for order in orders_list:
-        #         if "гермеон" in order['sender']['name'].lower():
-        #             # Возможно понадобится возвращать список заказов с полной информацией, а не определенные ключ:значение
-        #             # orders_result.append({"Номер заявки": order['orderId'], "Получатель": order['receiver']['name'],"Количество копий": order['freight']['places'] + 1})   
-        #             orders_result.append(order)   
-        #             # Количество копий маркировок равняется количеству грузовых мест + 1
-        #     if orders_list:
-        #         print(f"\nGET ORDER LIST - succesful request.\n\n")
-        #         return orders_result
-        #     else: 
-        #         print('На выбранную дату нет заявок от ООО Гермеон. Проверьте дату')
-        #         # self.close_session()
-        # else:
-        #     print(f"\nGET ORDER LIST ERROR\nWrong ApiToken/sessionID or something went wrong\nTry again\n{response}")
-        # pass
+            # return content['orders']
+            orders = content['orders']
+            if totalPages > 1:
+                for page in range(2, totalPages + 1):
+                    data = {"appkey": self.base_client.token, 
+                            "sessionID":self.base_client.sessionID,
+                            "dateStart": f'{search_date } 00:00', # Форматы даты ГГГГ-ММ-ДД
+                            "dateEnd": f'{search_date} 23:59',
+                            'page': page
+                            }
+                    response = await self.httpxclient.post(url, headers=self.base_client.headers, json=data)
+                    if response.status_code == 200:   
+                        orders.extend(response.json()['orders'])
+                    else:
+                        logging.error('GET order next page error')
+                    
+            orders_result = []
+            for order in orders:
+                if "гермеон" in order['sender']['name'].lower():
+                    # Возможно понадобится возвращать список заказов с полной информацией, а не определенные ключ:значение
+                    # orders_result.append({"Номер заявки": order['orderId'], "Получатель": order['receiver']['name'],"Количество копий": order['freight']['places'] + 1})   
+                    orders_result.append(order)   
+                    # Количество копий маркировок равняется количеству грузовых мест + 1
+            if orders_result:
+                print(f"\nGET ORDER LIST - succesful request.\n\n")
+                return orders_result
+            else: 
+                logging.error('На выбранную дату нет заявок от ООО Гермеон. Проверьте дату')
+        else:
+            print(f"\nGET ORDER LIST ERROR\nWrong ApiToken/sessionID or something went wrong\nTry again\n{response}")
+        pass
     
     # # Сохранение печатных форм предварительных заявок в файл в папку docsForPrint для дальнейшей печати или редактирования
     # def print_preorderPages(self, list: list) -> None:

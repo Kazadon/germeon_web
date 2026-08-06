@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-  Меню
+  Калькулятор ОСГ
 {% endblock %}
 
 {% block styles %}
@@ -28,8 +28,8 @@
 
 {% block content %}
   <main class="d-flex flex-column align-items-center justify-content-center pt-2" >
-      <div style="width: 400px;">
-          <div class="shadow-lg rounded mx-auto px-3 py-4 " id="display-anim" style="visibility: hidden;">
+      <div style="width: calc(100% - 32px); max-width: 400px;">
+          <div class="floating-div rounded-4 mx-auto px-2 py-4 " id="display-anim" style="visibility: hidden;">
               <div class="" >
                   <a href="#" class="nav-item nav-link link-info text-white d-flex justify-content-center align-items-center flex-column" onclick="alert('Модуль для вычисления остаточного срока годности товара')">
                       <svg class="bi mb-2" width="36" height="36" ><use xlink:href="#calculator" style="pointer-events: none; fill: #0dcaf0;" ></svg>

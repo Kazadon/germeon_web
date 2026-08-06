@@ -18,8 +18,8 @@ async def lifespan(app: FastAPI):
     
     api_object = BaseDL(token=token, login=login, password=password)
     
+    # Авторизация в API. Сохранение в app.state, чтобы можно было использовать сохраненные данные в дальнейшем
     try:
-        # Теперь это асинхронный вызов, который не блокирует сервер
         await api_object.auth()
         if not api_object.sessionID:
             logging.error("Lifespan: Токен/логин неверны. Приложение запущено без активной сессии.")
