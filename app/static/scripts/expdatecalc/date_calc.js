@@ -40,7 +40,7 @@ form_calc.addEventListener('submit', function(event){
                 }
                 
                 const progress_div = document.createElement('div')
-                progress_div.classList.add('progress')
+                progress_div.classList.add('progress', 'position-relative')
                 progress_div.style.background = '#2c3033'
                 progress_div.style.border = '1px solid #797e82'
                 progress_div.style.height = '20px'
@@ -52,7 +52,6 @@ form_calc.addEventListener('submit', function(event){
                 progressbar.ariaValueMin = 0
                 progressbar.ariaValueMax = 100
                 progressbar.style.width = `${result}%`
-                progressbar.textContent = `${result}%`
                 if (result < 30) {
                     progressbar.style.background = `#b30000`
                 } 
@@ -66,8 +65,13 @@ form_calc.addEventListener('submit', function(event){
                     progressbar.style.background = `#0dcaf0`
                 }
 
+                const span_result = document.createElement('span')
+                span_result.className = 'position-absolute w-100 h-100 d-flex align-items-center justify-content-center text-white'
+                span_result.textContent = `${result}%`
+
                 progress_div.appendChild(progressbar)
                 callback_div.appendChild(progress_div)
+                progress_div.appendChild(span_result)
             } 
             else{
                 callback_div.innerHTML = `Товар просрочен`
